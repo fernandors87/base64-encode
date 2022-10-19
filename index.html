@@ -1,8 +1,69 @@
-<html>
-  <header>
-    <title>Hello!</title>
-  </header>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Base64 Encode/Decode</title>
+    <meta name="description" content="Have fun encoding or decoding Base64 strings in this website." />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#373a3c" />
+    <link rel="canonical" href="https://fernandors87.github.io/base64-encode/" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6JBXMPCKJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K6JBXMPCKJ');
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <body>
-    Hello!
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Base64 Encode/Decode</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="encode">Encode</label>
+            <textarea id="encode" class="form-control" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="decode">Decode</label>
+            <textarea id="decode" class="form-control" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="result">
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    (function () {
+      var encode = document.getElementById("encode");
+      var decode = document.getElementById("decode");
+
+      encode.addEventListener('input', function(ev) {
+        var encoded = btoa(ev.target.value);
+        decode.value = encoded;
+      });
+
+      decode.addEventListener('input', function(ev) {
+        var decoded = atob(ev.target.value);
+        encode.value = decoded;
+      });
+    })();
+  </script>
 </html>
